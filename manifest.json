@@ -1,0 +1,11 @@
+{
+	"id": "bible-chapter-downloader",
+	"name": "Bible Chapter Downloader",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "This plugin is for downloading Bible chapters as files.",
+	"author": "Eric Sowell",
+	"authorUrl": "https://obsidian.md",
+	"fundingUrl": "https://obsidian.md/pricing",
+	"isDesktopOnly": false
+}
