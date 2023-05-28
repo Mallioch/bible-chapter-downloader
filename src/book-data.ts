@@ -25,270 +25,57 @@ export function GetBookData() : BookDataOption[] {
     { id: '12', name: '2 Kings', firstChapter: 1, lastChapter: 25, abbreviation: '2 Kgs' },
     { id: '13', name: '1 Chronicles', firstChapter: 1, lastChapter: 29, abbreviation: '1 Chr' },
     { id: '14', name: '2 Chronicles', firstChapter: 1, lastChapter: 36, abbreviation: '2 Chr' },
+    { id: '15', name: 'Ezra', firstChapter: 1, lastChapter: 10, abbreviation: 'Ezra' },
+    { id: '16', name: 'Nehemiah', firstChapter: 1, lastChapter: 13, abbreviation: 'Neh' },
+    { id: '17', name: 'Esther', firstChapter: 1, lastChapter: 10, abbreviation: 'Esth' },
+    { id: '18', name: 'Job', firstChapter: 1, lastChapter: 42, abbreviation: 'Job' },
+    { id: '19', name: 'Psalm', firstChapter: 1, lastChapter: 150, abbreviation: 'Ps' },
+    { id: '20', name: 'Proverbs', firstChapter: 1, lastChapter: 31, abbreviation: 'Prov' },
+    { id: '21', name: 'Ecclesiastes', firstChapter: 1, lastChapter: 12, abbreviation: 'Eccl' },
+    { id: '22', name: 'Song of Solomon', firstChapter: 1, lastChapter: 8, abbreviation: 'Song' },
+    { id: '23', name: 'Isaiah', firstChapter: 1, lastChapter: 66, abbreviation: 'Isa' },
+    { id: '24', name: 'Jeremiah', firstChapter: 1, lastChapter: 52, abbreviation: 'Jer' },
+    { id: '25', name: 'Lamentations', firstChapter: 1, lastChapter: 5, abbreviation: 'Lam' },
+    { id: '26', name: 'Ezekiel', firstChapter: 1, lastChapter: 48, abbreviation: 'Ezek' },
+    { id: '27', name: 'Daniel', firstChapter: 1, lastChapter: 12, abbreviation: 'Dan' },
+    { id: '28', name: 'Hosea', firstChapter: 1, lastChapter: 14, abbreviation: 'Hos' },
+    { id: '29', name: 'Joel', firstChapter: 1, lastChapter: 3, abbreviation: 'Joel' },
+    { id: '30', name: 'Amos', firstChapter: 1, lastChapter: 9, abbreviation: 'Amos' },
+    { id: '31', name: 'Obadiah', firstChapter: 1, lastChapter: 1, abbreviation: 'Obad' },
+    { id: '32', name: 'Jonah', firstChapter: 1, lastChapter: 4, abbreviation: 'Jonah' },
+    { id: '33', name: 'Micah', firstChapter: 1, lastChapter: 7, abbreviation: 'Mic' },
+    { id: '34', name: 'Nahum', firstChapter: 1, lastChapter: 3, abbreviation: 'Nah' },
+    { id: '35', name: 'Habbakuk', firstChapter: 1, lastChapter: 3, abbreviation: 'Hab' },
+    { id: '36', name: 'Zephaniah', firstChapter: 1, lastChapter: 3, abbreviation: 'Zeph' },
+    { id: '37', name: 'Haggai', firstChapter: 1, lastChapter: 2, abbreviation: 'Hag' },
+    { id: '38', name: 'Zechariah', firstChapter: 1, lastChapter: 14, abbreviation: 'Zech' },
+    { id: '39', name: 'Malachi', firstChapter: 1, lastChapter: 4, abbreviation: 'Mal' },
+    { id: '40', name: 'Matthew', firstChapter: 1, lastChapter: 28, abbreviation: 'Matt' },
+    { id: '41', name: 'Mark', firstChapter: 1, lastChapter: 16, abbreviation: 'Mark' },
+    { id: '42', name: 'Luke', firstChapter: 1, lastChapter: 24, abbreviation: 'Luke' },
+    { id: '43', name: 'John', firstChapter: 1, lastChapter: 21, abbreviation: 'John' },
+    { id: '44', name: 'Acts', firstChapter: 1, lastChapter: 28, abbreviation: 'Acts' },
+    { id: '45', name: 'Romans', firstChapter: 1, lastChapter: 16, abbreviation: 'Rom' },
+    { id: '46', name: '1 Corinthians', firstChapter: 1, lastChapter: 16, abbreviation: '1 Cor' },
+    { id: '47', name: '2 Corinthians', firstChapter: 1, lastChapter: 13, abbreviation: '2 Cor' },
+    { id: '48', name: 'Galatians', firstChapter: 1, lastChapter: 6, abbreviation: 'Gal' },
+    { id: '49', name: 'Ephesians', firstChapter: 1, lastChapter: 6, abbreviation: 'Eph' },
+    { id: '50', name: 'Philippians', firstChapter: 1, lastChapter: 4, abbreviation: 'Phil' },
+    { id: '51', name: 'Colossians', firstChapter: 1, lastChapter: 4, abbreviation: 'Col' },
+    { id: '52', name: '1 Thessalonians', firstChapter: 1, lastChapter: 5, abbreviation: '1 Thess' },
+    { id: '53', name: '2 Thessalonians', firstChapter: 1, lastChapter: 3, abbreviation: '2 Thess' },
+    { id: '54', name: '1 Timothy', firstChapter: 1, lastChapter: 6, abbreviation: '1 Tim' },
+    { id: '55', name: '2 Timothy', firstChapter: 1, lastChapter: 4, abbreviation: '2 Tim' },
+    { id: '56', name: 'Titus', firstChapter: 1, lastChapter: 3, abbreviation: 'Titus' },
+    { id: '57', name: 'Philemon', firstChapter: 1, lastChapter: 1, abbreviation: 'Phlm' },
+    { id: '58', name: 'Hebrews', firstChapter: 1, lastChapter: 13, abbreviation: 'Heb' },
+    { id: '59', name: 'James', firstChapter: 1, lastChapter: 5, abbreviation: 'Jas' },
+    { id: '60', name: '1 Peter', firstChapter: 1, lastChapter: 5, abbreviation: '1 Pet' },
+    { id: '61', name: '2 Peter', firstChapter: 1, lastChapter: 3, abbreviation: '2 Pet' },
+    { id: '62', name: '1 John', firstChapter: 1, lastChapter: 5, abbreviation: '1 John' },
+    { id: '63', name: '2 John', firstChapter: 1, lastChapter: 1, abbreviation: '2 John' },
+    { id: '64', name: '3 John', firstChapter: 1, lastChapter: 1, abbreviation: '3 John' },
+    { id: '65', name: 'Jude', firstChapter: 1, lastChapter: 1, abbreviation: 'Jude' },
+    { id: '66', name: 'Revelation', firstChapter: 1, lastChapter: 22, abbreviation: 'Rev' }
   ]
 }
-
-
-
-
-
-// 14	
-// bookid	15
-// chronorder	37
-// name	"Ezra"
-// chapters	10
-// 15	
-// bookid	16
-// chronorder	38
-// name	"Nehemiah"
-// chapters	13
-// 16	
-// bookid	17
-// chronorder	36
-// name	"Esther"
-// chapters	10
-// 17	
-// bookid	18
-// chronorder	2
-// name	"Job"
-// chapters	42
-// 18	
-// bookid	19
-// chronorder	13
-// name	"Psalm"
-// chapters	150
-// 19	
-// bookid	20
-// chronorder	17
-// name	"Proverbs"
-// chapters	31
-// 20	
-// bookid	21
-// chronorder	18
-// name	"Ecclesiastes"
-// chapters	12
-// 21	
-// bookid	22
-// chronorder	14
-// name	"Song of Solomon"
-// chapters	8
-// 22	
-// bookid	23
-// chronorder	25
-// name	"Isaiah"
-// chapters	66
-// 23	
-// bookid	24
-// chronorder	29
-// name	"Jeremiah"
-// chapters	52
-// 24	
-// bookid	25
-// chronorder	30
-// name	"Lamentations"
-// chapters	5
-// 25	
-// bookid	26
-// chronorder	32
-// name	"Ezekiel"
-// chapters	48
-// 26	
-// bookid	27
-// chronorder	33
-// name	"Daniel"
-// chapters	12
-// 27	
-// bookid	28
-// chronorder	23
-// name	"Hosea"
-// chapters	14
-// 28	
-// bookid	29
-// chronorder	20
-// name	"Joel"
-// chapters	3
-// 29	
-// bookid	30
-// chronorder	21
-// name	"Amos"
-// chapters	9
-// 30	
-// bookid	31
-// chronorder	31
-// name	"Obadiah"
-// chapters	1
-// 31	
-// bookid	32
-// chronorder	19
-// name	"Jonah"
-// chapters	4
-// 32	
-// bookid	33
-// chronorder	22
-// name	"Micah"
-// chapters	7
-// 33	
-// bookid	34
-// chronorder	24
-// name	"Nahum"
-// chapters	3
-// 34	
-// bookid	35
-// chronorder	27
-// name	"Habakkuk"
-// chapters	3
-// 35	
-// bookid	36
-// chronorder	26
-// name	"Zephaniah"
-// chapters	3
-// 36	
-// bookid	37
-// chronorder	34
-// name	"Haggai"
-// chapters	2
-// 37	
-// bookid	38
-// chronorder	35
-// name	"Zechariah"
-// chapters	14
-// 38	
-// bookid	39
-// chronorder	39
-// name	"Malachi"
-// chapters	4
-// 39	
-// bookid	40
-// chronorder	40
-// name	"Matthew"
-// chapters	28
-// 40	
-// bookid	41
-// chronorder	58
-// name	"Mark"
-// chapters	16
-// 41	
-// bookid	42
-// chronorder	52
-// name	"Luke"
-// chapters	24
-// 42	
-// bookid	43
-// chronorder	66
-// name	"John"
-// chapters	21
-// 43	
-// bookid	44
-// chronorder	54
-// name	"Acts"
-// chapters	28
-// 44	
-// bookid	45
-// chronorder	46
-// name	"Romans"
-// chapters	16
-// 45	
-// bookid	46
-// chronorder	44
-// name	"1 Corinthians"
-// chapters	16
-// 46	
-// bookid	47
-// chronorder	45
-// name	"2 Corinthians"
-// chapters	13
-// 47	
-// bookid	48
-// chronorder	41
-// name	"Galatians"
-// chapters	6
-// 48	
-// bookid	49
-// chronorder	47
-// name	"Ephesians"
-// chapters	6
-// 49	
-// bookid	50
-// chronorder	49
-// name	"Philippians"
-// chapters	4
-// 50	
-// bookid	51
-// chronorder	50
-// name	"Colossians"
-// chapters	4
-// 51	
-// bookid	52
-// chronorder	42
-// name	"1 Thessalonians"
-// chapters	5
-// 52	
-// bookid	53
-// chronorder	43
-// name	"2 Thessalonians"
-// chapters	3
-// 53	
-// bookid	54
-// chronorder	55
-// name	"1 Timothy"
-// chapters	6
-// 54	
-// bookid	55
-// chronorder	59
-// name	"2 Timothy"
-// chapters	4
-// 55	
-// bookid	56
-// chronorder	57
-// name	"Titus"
-// chapters	3
-// 56	
-// bookid	57
-// chronorder	51
-// name	"Philemon"
-// chapters	1
-// 57	
-// bookid	58
-// chronorder	53
-// name	"Hebrews"
-// chapters	13
-// 58	
-// bookid	59
-// chronorder	48
-// name	"James"
-// chapters	5
-// 59	
-// bookid	60
-// chronorder	56
-// name	"1 Peter"
-// chapters	5
-// 60	
-// bookid	61
-// chronorder	60
-// name	"2 Peter"
-// chapters	3
-// 61	
-// bookid	62
-// chronorder	61
-// name	"1 John"
-// chapters	5
-// 62	
-// bookid	63
-// chronorder	62
-// name	"2 John"
-// chapters	1
-// 63	
-// bookid	64
-// chronorder	63
-// name	"3 John"
-// chapters	1
-// 64	
-// bookid	65
-// chronorder	64
-// name	"Jude"
-// chapters	1
-// 65	
-// bookid	66
-// chronorder	65
-// name	"Revelation"
-// chapters	22

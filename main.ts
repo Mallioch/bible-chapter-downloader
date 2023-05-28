@@ -1,7 +1,7 @@
 import { App, Editor, MarkdownView, Notice, Plugin, PluginSettingTab, Setting, Vault, DataWriteOptions } from 'obsidian';
 import { stringify } from 'querystring';
 import { TextSelectionModal, TextSelectionResult } from './src/text-selection-modal';
-
+import { DataFetcher } from 'src/data-fetcher';
 
 // Remember to rename these classes and interfaces!
 
@@ -24,8 +24,37 @@ export default class MyPlugin extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
+
+		const invokeDownloadDialog = () => {
+			const callbackFunc = async (a: TextSelectionResult) => {
+				const fileContents = await DataFetcher.getBook(a.bookId, a.chapterNumber)
+
+				const folderPath = `Notes/TextRef/Bible/ESV/${a.bookAbbreviation}`;				
+				const folderExists = await this.app.vault.adapter.exists(folderPath);
+
+				if (!folderExists) {
+					const folderCreateResult = await this.app.vault.createFolder(folderPath)
+					new Notice(`Created folder '${folderPath}'.`);
+				}
+
+				const filePath = `${folderPath}/${a.bookAbbreviation} ${a.chapterNumber}.md`;
+				const fileExists = await this.app.vault.adapter.exists(filePath);
+
+				if (fileExists) {
+					new Notice(`File '${folderPath}' has already been downloaded.`);
+				}
+				else {
+					const fileCreateResult = await this.app.vault.create(filePath, fileContents);
+					new Notice(`Created file '${filePath}'.`);
+				}
+			}
+
+			new TextSelectionModal(this.app, callbackFunc).open();
+		}
+
+
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('book-down', 'Sample Plugin', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			// fetch('https://bolls.life/get-chapter/ESV/2/3/').then(response => {
 			// 	response.json().then(y => {
@@ -33,44 +62,17 @@ export default class MyPlugin extends Plugin {
 			// 	});
 			// });
 
-			const callbackFunc = (a: TextSelectionResult) => {
-				console.log('callback', a);
-
-				fetch('https://bolls.life/get-chapter/ESV/' + a.bookId + '/' + a.chapterNumber.toString() + '/').then(x => {
-					x.json().then(data => {
-						console.log('api data', data);
-
-						let contents = '';
-						data.forEach((v: ApiDataObject) => {
-							contents += '###### ' + v.verse + '\n';
-							contents += v.text + '\n';
-						});
-
-						this.app.vault.create('Notes/TextRef/ESV/' + a.bookAbbreviation + '/' + a.bookAbbreviation + ' ' + a.chapterNumber + '.md', contents);
-//						console.log('vault', new Vault().create('yo', 'dawg'));
-					});
-				// x.json().then(y => {
-				// 	console.log('y', y);
-				});
-			}
-
-			new TextSelectionModal(this.app, callbackFunc).open();
-      
-			new Notice('This is a notice!');
+			invokeDownloadDialog();
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
 
-		// This adds a status bar item to the bottom of the app. Does not work on mobile apps.
-		const statusBarItemEl = this.addStatusBarItem();
-		statusBarItemEl.setText('Status Bar Text');
-
 		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
-			id: 'open-sample-modal-simple',
-			name: 'Open sample modal (simple)',
+			id: 'download-bible-chapter',
+			name: 'Download Bible Chapter',
 			callback: () => {
-				// do whatever here
+				invokeDownloadDialog();
 			}
 		});
 		// This adds an editor command that can perform some operation on the current editor instance
@@ -111,9 +113,6 @@ export default class MyPlugin extends Plugin {
 		this.registerDomEvent(document, 'click', (evt: MouseEvent) => {
 			//console.log('click', evt);
 		});
-
-		// When registering intervals, this function will automatically clear the interval when the plugin is disabled.
-		this.registerInterval(window.setInterval(() => console.log('setInterval'), 5 * 60 * 1000));
 	}
 
 	onunload() {

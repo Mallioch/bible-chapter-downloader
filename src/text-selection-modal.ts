@@ -21,9 +21,10 @@ export class TextSelectionModal extends Modal {
     this.handleResultFunction(this.result)
 	}
 
-  private chapterSetting: Setting;
+	private bookSetting: Setting;
+  private chapterSetting: Setting | undefined;
   private verseDropdown: DropdownComponent;
-  private submitSetting: Setting;
+  private submitSetting: Setting | undefined;
 
 
 	onOpen() {
@@ -36,8 +37,8 @@ export class TextSelectionModal extends Modal {
 
 		const bookData = GetBookData();
 
-		new Setting(contentEl)
-			.setName("Book 2")
+		this.bookSetting = new Setting(contentEl)
+			.setName("Book")
 			.addDropdown((drop) => {
 
 				bookData.forEach(book => {
@@ -50,10 +51,13 @@ export class TextSelectionModal extends Modal {
           const book = bookData.find(x => x.id === value);
           this.result.bookAbbreviation = book!.abbreviation;
 					this.showChapters(contentEl, value);
+
+					this.showSubmit(contentEl);
 				});
 			});
 
     //console.log('the ssetting', theSetting);
+		console.log('bookSetting', this.bookSetting);
     
 	}
 
@@ -73,38 +77,34 @@ export class TextSelectionModal extends Modal {
       }
     }
 
-    if (this.chapterSetting == null) {
-      this.chapterSetting = new Setting(contentEl)
-      .setName("Chapter")
-      .addDropdown((drop) => {
+		if (this.chapterSetting !== undefined) {
+			contentEl.removeChild(this.chapterSetting.settingEl);
+			this.chapterSetting = undefined;
+		}
 
-        this.verseDropdown = drop;
-        createOptions(this.verseDropdown.selectEl)
+		this.chapterSetting = new Setting(contentEl)
+		.setName("Chapter")
+		.addDropdown((drop) => {
 
-        drop.onChange((value) => {
-					console.log('chapter', value);
-          this.result.chapterNumber = Number.parseInt(value)
-					this.showSubmit(contentEl);
-        });
+			this.verseDropdown = drop;
+			this.verseDropdown.selectEl.innerHTML += '<option>-</option>'
+			createOptions(this.verseDropdown.selectEl)
+
+			drop.onChange((value) => {
+				console.log('chapter', value);
+				this.result.chapterNumber = Number.parseInt(value)
 			});
-    }
-    else {
-      this.verseDropdown.selectEl.innerHTML = '';
-      createOptions(this.verseDropdown.selectEl)
-    }
-
-
-
-				
+		});
 	}
 
 	showSubmit(contentEl: HTMLElement) {
 
-    if (this.submitSetting != undefined) {
-      return;
+    if (this.submitSetting !== undefined) {
+      contentEl.removeChild(this.submitSetting.settingEl);
+			this.submitSetting = undefined;
     }
 
-		new Setting(contentEl)
+		this.submitSetting = new Setting(contentEl)
 		.addButton((btn) =>
 			btn
 				.setButtonText("Submit")
@@ -116,7 +116,7 @@ export class TextSelectionModal extends Modal {
 	}
 
 	onClose() {
-		const {contentEl} = this;
+		const { contentEl } = this;
 		contentEl.empty();
 	}
 }
