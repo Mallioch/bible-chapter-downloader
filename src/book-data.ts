@@ -12,9 +12,9 @@ export function GetBookData() : BookDataOption[] {
   return [
     { id: '0', name: '--Choose an option--', firstChapter: -1, lastChapter: -1, abbreviation: '' },
     { id: '1', name: 'Genesis', firstChapter: 1, lastChapter: 50, abbreviation: 'Gen' },
-    { id: '2', name: 'Exodus', firstChapter: 0, lastChapter: 49, abbreviation: 'Ex' },
+    { id: '2', name: 'Exodus', firstChapter: 1, lastChapter: 49, abbreviation: 'Ex' },
     { id: '3', name: 'Leviticus', firstChapter: 1, lastChapter: 48, abbreviation: 'Lev' },
-    { id: '4', name: 'Numbers', firstChapter: 0, lastChapter: 47, abbreviation: 'Num' },
+    { id: '4', name: 'Numbers', firstChapter: 1, lastChapter: 47, abbreviation: 'Num' },
     { id: '5', name: 'Deuteronomy', firstChapter: 1, lastChapter: 34, abbreviation: 'Deut' },
     { id: '6', name: 'Joshua', firstChapter: 1, lastChapter: 24, abbreviation: 'Josh' },
     { id: '7', name: 'Judges', firstChapter: 1, lastChapter: 21, abbreviation: 'Judg' },
